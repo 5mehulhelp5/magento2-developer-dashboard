@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 function Header() {
     return (
         <>
@@ -15,10 +17,20 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                <NavLink
+                                    to="/"
+                                    className={({ isActive }) =>
+                                        isActive ? `nav-link active` : 'nav-link'
+                                    }
+                                >Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/about">About</a>
+                                <NavLink
+                                    to="/about"
+                                    className={({ isActive }) =>
+                                        isActive ? `nav-link active` : 'nav-link'
+                                    }
+                                >About</NavLink>
                             </li>
                         </ul>
                     </div>
