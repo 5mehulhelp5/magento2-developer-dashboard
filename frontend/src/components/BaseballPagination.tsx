@@ -6,7 +6,6 @@ function BaseballPagination() {
 
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
     const [totalPages, setTotalPages] = useState(1);
 
     // Status
@@ -33,7 +32,6 @@ function BaseballPagination() {
 
                 const json = await response.json();
                 setData(json || []);
-                setItemsPerPage(json.per_page || 25);
                 setTotalPages(json.total_pages || 1);
             } catch (error) {
                 setError(error.message);
