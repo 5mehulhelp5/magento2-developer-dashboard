@@ -10,7 +10,7 @@ function BaseballPagination() {
 
     // Status
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,8 +33,11 @@ function BaseballPagination() {
                 const json = await response.json();
                 setData(json || []);
                 setTotalPages(json.total_pages || 1);
-            } catch (error) {
-                setError(error.message);
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message)
+                }
+                setError("Fetch error");
             } finally {
                 setLoading(false);
             }
@@ -66,9 +69,7 @@ function BaseballPagination() {
     return (
         <div>
             <ul>
-                {data.map(item => (
-                    <li key={item.id}>{item.name}</li>
-                ))}
+                {data}
             </ul>
             <button onClick={handlePreviousPage} disabled={currentPage === 1}>
                 Previous
