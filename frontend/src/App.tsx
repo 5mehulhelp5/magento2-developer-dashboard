@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Baseball from "./pages/Baseball.tsx";
+import Baseball from './pages/Baseball';
+import Login from './pages/Login';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="baseball" element={<Baseball />} />
                 <Route path="about" element={<About />} />
+                <Route path="login" element={<Login />} />
             </Routes>
         </>
     )
