@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 function Header() {
     return (
         <>
-            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Magento Dashboard</a>
                     <button className="navbar-toggler" type="button"
