@@ -11,11 +11,11 @@ function Login() {
             <main>
                 <div className={'container-fluid'}>
                     <div className={'row'}>
-                        <div className={'col-12 col-md-5 col-xl-4'}>
+                        <div className={'col-12 col-md-5 col-xl-4 leftPane'}>
                             <ProjectList />
                         </div>
 
-                        <div className={'col-12 col-md-7 col-xl-8'}>
+                        <div className={'col-12 col-md-7 col-xl-8 rightPane'}>
                             <div>
                                 <h1>Login</h1>
                                 <LoginForm />
