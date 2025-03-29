@@ -1,3 +1,18 @@
+main {
+  padding-top: 70px;
+}
+
+.leftPane {
+    text-align: center;
+    background: #DDD;
+}
+
+.rightPane {
+    text-align: center;
+    background: #B8B;
+}
+
+/*
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -66,3 +81,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+*/
