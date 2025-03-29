@@ -18,8 +18,7 @@ export default function LoginForm() {
 
     const onSubmit = (data: unknown) => {
         setLoading(true);
-        fetch(
-            process.env.BASE_URL + "/rest/V1/integration/customer/token",
+        fetch('http://localhost:5000/customer/token',
             {
                 method: "POST",
                 headers: {
@@ -30,10 +29,10 @@ export default function LoginForm() {
         )
         .then((response) => response.json())
         .then((data) => {
-            if (data?.message) {
+            if (data?.errorMessage) {
                 setApiMsg({
                     status: "error",
-                    message: data.message,
+                    message: data.errorMessage,
                 });
             } else {
                 // store the token for further need
@@ -97,7 +96,7 @@ export default function LoginForm() {
                     Sign in
                 </button>
 
-                {errors.username  && (
+                {errors.username && (
                     <p>
                         errors.username?.message
                     </p>
