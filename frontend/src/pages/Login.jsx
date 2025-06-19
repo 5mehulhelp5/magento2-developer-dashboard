@@ -1,5 +1,4 @@
 import Header from '../components/Header'
-import LoginForm from '../components/LoginForm'
 import ProjectList from '../components/ProjectList'
 import '../styles/App.css'
 
@@ -18,7 +17,6 @@ function Login() {
                         <div className={'col-12 col-md-7 col-xl-8 rightPane'}>
                             <div>
                                 <h1>Login</h1>
-                                <LoginForm />
                             </div>
                         </div>
                     </div>

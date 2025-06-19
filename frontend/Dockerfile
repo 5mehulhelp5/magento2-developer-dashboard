@@ -5,7 +5,7 @@ FROM node:22
 WORKDIR /app
 
 # Copy package.json and install dependencies
-COPY package.json tsconfig.json ./
+COPY package.json jsconfig.json ./
 RUN npm install
 
 # Copy all files
