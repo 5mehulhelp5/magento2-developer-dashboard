@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import ProjectList from '../components/ProjectList'
+import MagentoForm from '../components/MagentoForm'
 import '../styles/App.css'
 
 function Add() {
@@ -17,6 +18,7 @@ function Add() {
                         <div className={'col-12 col-md-7 col-xl-8 rightPane'}>
                             <div>
                                 <h1>Add</h1>
+                                <MagentoForm />
                             </div>
                         </div>
                     </div>
