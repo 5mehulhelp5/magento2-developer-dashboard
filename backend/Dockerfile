@@ -1,11 +1,11 @@
 # Use Node.js base image
-FROM node:19
+FROM node:22-alpine
 
 # Set working directory
 WORKDIR /app
 
 # Copy package.js and install dependencies
-COPY package.json tsconfig.json ./
+COPY package*.json ./
 RUN npm install
 
 # Copy all files

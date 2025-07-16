@@ -20,7 +20,7 @@ app.get('/api/customers', async (req, res) => {
             }
         })
         res.json(response.data);
-    } catch (error: unknown) {
+    } catch (error) {
         if (error instanceof AxiosError) {
             console.log(error.message)
             res.json({ errorMessage: error.message });
@@ -42,7 +42,7 @@ app.post('/customer/token', async (req, res) => {
             }
         });
         res.json(response.data);
-    } catch (error: unknown) {
+    } catch (error) {
         if (error instanceof AxiosError) {
             console.log(error.message)
             res.json({ errorMessage: error.message });
