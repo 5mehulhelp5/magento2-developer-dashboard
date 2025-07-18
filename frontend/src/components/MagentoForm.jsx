@@ -1,44 +1,32 @@
-import * as Yup from "yup";
-import {
-    Formik, Form, Field, ErrorMessage
-} from "formik";
-import {
-    FormGroup,
-    Button
-} from "react-bootstrap";
+import axios from 'axios';
 
-const MagentoForm = (props) => {
-    const validationSchema =
-        Yup.object().shape({
-            name: Yup.string().required("Required"),
-            url: Yup.string().required("Required"),
-            accessToken: Yup.string().required("Required")
-        });
+export default function MagentoForm() {
+    const submitForm = async(event) => {
+        event.preventDefault();
 
-    console.log(props);
+        // Create new FormData
+        const formData = new FormData(event.target);
 
+        const magentoData = Object.fromEntries(formData.entries());
+
+        // Any validation
+
+        try {
+            await axios.post('http://localhost:5000/magento/', magentoData)
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
+    }
     return (
         <div className="form-wrapper">
-            <Formik {...props}
-                validationSchema={validationSchema}>
-                <Form>
-                    <FormGroup>
-                        <Field name="name" type="text" className="form-control" />
-                        <ErrorMessage name="name" className="d-block invalid-feedback" component="span" />
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Field name="url" type="text" className="form-control" />
-                        <ErrorMessage name="url" className="d-block invalid-feedback" component="span" />
-                    </FormGroup>
-
-                    <Button variant="danger" size="lg" type="submit">
-                        {props}
-                    </Button>
-                </Form>
-            </Formik>
+            <div className="flex h-screen bg-gray-100">
+                <form onSubmit={submitForm}>
+                    <input name="name" type="text" placeholder="Magento Name" required />
+                    <input name="url" type="text" placeholder="Magento URL" required />
+                    <input name="access_token" type="text" placeholder="Magento Token" />
+                    <button type="submit">Add Magento</button>
+                </form>
+            </div>
         </div>
     );
 }
-
-export default MagentoForm;
