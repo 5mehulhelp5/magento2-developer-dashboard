@@ -6,7 +6,7 @@ const Magento = sequelize.define('Magento', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    urL: {
+    url: {
         type: DataTypes.STRING,
         allowNull: false
     },
