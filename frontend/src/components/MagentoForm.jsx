@@ -6,7 +6,6 @@ export default function MagentoForm() {
 
         // Create new FormData
         const formData = new FormData(event.target);
-
         const magentoData = Object.fromEntries(formData.entries());
 
         // Any validation
@@ -17,14 +16,23 @@ export default function MagentoForm() {
             console.error('Error submitting form:', error);
         }
     }
+
     return (
         <div className="form-wrapper">
             <div className="flex h-screen bg-gray-100">
                 <form onSubmit={submitForm}>
-                    <input name="name" type="text" placeholder="Magento Name" required />
-                    <input name="url" type="text" placeholder="Magento URL" required />
-                    <input name="access_token" type="text" placeholder="Magento Token" />
-                    <button type="submit">Add Magento</button>
+                    <div class="form-group">
+                        <label for="name" className="form-label">Site Name</label>
+                        <input name="name" type="text" placeholder="Site Name" className="form-control" required /><br />
+                    </div>
+
+                    <label for="url" className="form-label">Magento URL</label>
+                    <input name="url" type="text" placeholder="Magento URL" className="form-control" required /><br />
+
+                    <label for="access_token" className="form-label">Magento Token</label>
+                    <input name="access_token" type="text" placeholder="Magento Token" /><br />
+
+                    <button type="submit" className="btn btn-primary">Add Magento</button>
                 </form>
             </div>
         </div>

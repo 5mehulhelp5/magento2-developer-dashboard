@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function Header() {
+export default function Header() {
     return (
         <>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -47,5 +47,3 @@ function Header() {
         </>
     )
 }
-
-export default Header
