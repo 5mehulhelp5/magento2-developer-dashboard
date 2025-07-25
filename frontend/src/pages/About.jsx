@@ -1,11 +1,5 @@
-import DashboardLayout from "../layouts/DashboardLayout.jsx";
-
-function About() {
+export default function About() {
     return (
-        <DashboardLayout>
-            <h1>About Me</h1>
-        </DashboardLayout>
+        <h1>About Me</h1>
     )
 }
-
-export default About
