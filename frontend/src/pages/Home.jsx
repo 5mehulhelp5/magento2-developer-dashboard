@@ -1,11 +1,5 @@
-import DashboardLayout from "../layouts/DashboardLayout.jsx";
-
-function Home() {
+export default function Home() {
     return (
-        <DashboardLayout>
-            <h1>Vite + React</h1>
-        </DashboardLayout>
+        <h1>Vite + React</h1>
     )
 }
-
-export default Home

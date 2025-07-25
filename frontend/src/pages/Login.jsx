@@ -1,11 +1,5 @@
-import DashboardLayout from "../layouts/DashboardLayout.jsx";
-
-function Login() {
+export default function Login() {
     return (
-        <DashboardLayout>
-            <h1>Login</h1>
-        </DashboardLayout>
+        <h1>Login</h1>
     )
 }
-
-export default Login
