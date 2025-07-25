@@ -1,8 +1,12 @@
 import Magento from '../models/magentoModel.js';
 
 export const getMagentos = async (req, res) => {
-    const magentos = await Magento.findAll();
-    res.json(magentos);
+    try {
+        const magentos = await Magento.findAll();
+        res.json(magentos);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
 };
 
 export const createMagento = async (req, res) => {
