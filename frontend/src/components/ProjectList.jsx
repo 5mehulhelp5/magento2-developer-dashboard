@@ -6,8 +6,10 @@ export default function ProjectList({ records }) {
             <Link to="/add" className="btn btn-primary">Add Magento Site</Link>
 
             {records && records.length > 0 ? (
-                <ul>
-                    {records.length && records.map(r => <li key={r.id}>{r.name}</li>)}
+                <ul className="list-group">
+                    {records.length &&
+                        records.map(r => <li className="list-group-item" key={r.id}>{r.name}</li>)
+                    }
                 </ul>
             ) : (
                 <p>No  found.</p>
