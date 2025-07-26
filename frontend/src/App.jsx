@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
 import Add from './pages/Add';
+import Details from './components/Details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
@@ -45,6 +46,11 @@ function App() {
                 <Route path="add" element={
                     <DashboardLayout records={records}>
                         <Add onRecordAdded={loadRecords} />
+                    </DashboardLayout>
+                } />
+                <Route path="magento/:id" element={
+                    <DashboardLayout records={records}>
+                        <Details records={records} />
                     </DashboardLayout>
                 } />
             </Routes>
