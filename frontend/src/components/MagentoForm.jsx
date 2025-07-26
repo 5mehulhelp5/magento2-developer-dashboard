@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function MagentoForm({ onRecordAdded }) {
+export default function MagentoForm({ onSuccess }) {
     const submitForm = async(event) => {
         event.preventDefault();
 
@@ -14,7 +14,9 @@ export default function MagentoForm({ onRecordAdded }) {
             await axios.post('http://localhost:5000/magento/', magentoData);
 
             // Call to parent component to refresh records
-            onRecordAdded();
+            if (onSuccess) {
+                onSuccess();
+            }
         } catch (error) {
             console.error('Error submitting form:', error);
         }
