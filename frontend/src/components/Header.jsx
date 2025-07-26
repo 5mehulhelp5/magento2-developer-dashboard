@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
     return (
         <>
             <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Magento Dashboard</a>
+                    <Link to="/" className="navbar-brand">Magento Dashboard</Link>
                     <button className="navbar-toggler" type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown"
