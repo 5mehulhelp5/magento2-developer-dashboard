@@ -1,5 +1,7 @@
 export default function Home() {
     return (
-        <h1>Vite + React</h1>
+        <>
+            <h1 className="text-center">Magento Developer Dashboard</h1>
+        </>
     )
 }
