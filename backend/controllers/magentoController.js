@@ -25,3 +25,10 @@ export const updateMagento = async (req, res) => {
     res.json(magento);
 };
 
+export const deleteMagento = async (req, res) => {
+    const magento = await Magento.findByPk(req.params.id);
+    if (!magento) return res.status(404).json({ error: 'Magento not found' });
+    await magento.destroy();
+    res.status(204).send();
+};
+
