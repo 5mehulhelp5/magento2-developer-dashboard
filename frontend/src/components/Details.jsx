@@ -10,8 +10,9 @@ export default function Details({ records }) {
 
     return (
         <>
-            <h1>Magento Details</h1>
-            <div className="container">
+            <h1 className="text-center">Magento Details</h1>
+
+            <div className="container text-center">
                 <div className="row">
                     <div class="col-sm">Id</div>
                     <div class="col-sm">{record.id}</div>
@@ -38,6 +39,11 @@ export default function Details({ records }) {
                     <div className="col-sm">{new Date(record.updatedAt).toLocaleString()}</div>
                 </div>
             </div>
+            <br />
+
+            <p className="text-center">
+                <button type="submit" className="btn btn-danger">Delete Magento Site</button>
+            </p>
         </>
     );
 }
