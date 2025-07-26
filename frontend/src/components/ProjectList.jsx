@@ -8,11 +8,11 @@ export default function ProjectList({ records }) {
             {records && records.length > 0 ? (
                 <ul className="list-group">
                     {records.length &&
-                        records.map(r => <li className="list-group-item" key={r.id}>{r.name}</li>)
+                        records.map(r => <Link to={`/magento/${r.id}`} className="list-group-item" key={r.id}>{r.name}</Link>)
                     }
                 </ul>
             ) : (
-                <p>No  found.</p>
+                <p>No found.</p>
             )}
         </>
     )
