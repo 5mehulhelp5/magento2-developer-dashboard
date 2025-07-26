@@ -14,8 +14,8 @@ export default function Details({ records }) {
 
             <div className="container text-center">
                 <div className="row">
-                    <div class="col-sm">Id</div>
-                    <div class="col-sm">{record.id}</div>
+                    <div className="col-sm">Id</div>
+                    <div className="col-sm">{record.id}</div>
                 </div>
 
                 <div className="row">
