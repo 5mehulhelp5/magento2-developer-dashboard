@@ -10,8 +10,12 @@ export const getMagentos = async (req, res) => {
 };
 
 export const createMagento = async (req, res) => {
-    const magento = await Magento.create(req.body);
-    res.status(201).json(magento);
+    try {
+        const magento = await Magento.create(req.body);
+        res.status(201).json(magento);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
 };
 
 export const updateMagento = async (req, res) => {
