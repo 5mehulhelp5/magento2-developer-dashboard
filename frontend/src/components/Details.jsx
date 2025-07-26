@@ -1,8 +1,29 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-export default function Details({ records }) {
+export default function Details({ records, onRecordDeleted }) {
     const { id } = useParams();
+    const navigate = useNavigate();
     const record = records.find(r => String(r.id) === id);
+
+    const handleDelete = async () => {
+        if (window.confirm('Are you sure you want to delete this record?')) {
+            try {
+                await axios.delete(`http://localhost:5000/magento/${id}`);
+
+                // Notify parent component about the deletion
+                if (onRecordDeleted) {
+                    onRecordDeleted();
+                }
+
+                // Redirect to home page after deletion
+                navigate('/');
+            } catch (error) {
+                console.error('Error deleting record:', error);
+                alert('An error occurred while deleting the record');
+            }
+        }
+    };
 
     if (!record) {
         return <p>Record not found</p>;
@@ -42,7 +63,7 @@ export default function Details({ records }) {
             <br />
 
             <p className="text-center">
-                <button type="submit" className="btn btn-danger">Delete Magento Site</button>
+                <button onClick={handleDelete} className="btn btn-danger">Delete Magento Site</button>
             </p>
         </>
     );

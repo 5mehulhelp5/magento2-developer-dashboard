@@ -50,7 +50,7 @@ function App() {
                 } />
                 <Route path="magento/:id" element={
                     <DashboardLayout records={records}>
-                        <Details records={records} />
+                        <Details onRecordDeleted={loadRecords} records={records} />
                     </DashboardLayout>
                 } />
             </Routes>
