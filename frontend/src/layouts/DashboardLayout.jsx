@@ -9,7 +9,7 @@ export default function DashboardLayout({ records, children }) {
                 <div className={'container-fluid'}>
                     <div className={'row'}>
                         <div className={'col-12 col-md-5 col-xl-4 leftPane'}>
-                            <ProjectList records={records}/>
+                            <ProjectList records={records} />
                         </div>
                         <div className={'col-12 col-md-7 col-xl-8 rightPane'}>
                             { children }
