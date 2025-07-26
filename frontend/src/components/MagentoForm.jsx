@@ -26,16 +26,18 @@ export default function MagentoForm({ onRecordAdded }) {
                 <form onSubmit={submitForm}>
                     <div className="form-group">
                         <label htmlFor="name" className="form-label">Site Name</label>
-                        <input name="name" type="text" placeholder="Site Name" className="form-control" required /><br />
+                        <input id="name" name="name" type="text" placeholder="Site Name" className="form-control" required /><br />
                     </div>
 
                     <label htmlFor="url" className="form-label">Magento URL</label>
-                    <input name="url" type="text" placeholder="Magento URL" className="form-control" required /><br />
+                    <input id="url" name="url" type="text" placeholder="Magento URL" className="form-control" required /><br />
 
                     <label htmlFor="access_token" className="form-label">Magento Token</label>
-                    <input name="access_token" type="text" placeholder="Magento Token" className="form-control" /><br />
+                    <input id="access_token" name="access_token" type="text" placeholder="Magento Token" className="form-control" required /><br />
 
-                    <button type="submit" className="btn btn-primary">Add Magento</button>
+                    <p className="text-center">
+                        <button type="submit" className="btn btn-primary">Add Magento</button>
+                    </p>
                 </form>
             </div>
         </div>
