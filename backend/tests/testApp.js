@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import magentoRoutes from '../routes/magentoRoutes.js';
+import magentoRoutes from '../src/routes/magentoRoutes.js';
 
 const app = express();
 app.use(cors());

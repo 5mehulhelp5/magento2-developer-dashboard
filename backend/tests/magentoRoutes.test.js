@@ -1,7 +1,7 @@
 import {describe, it, beforeEach, vi, expect} from 'vitest';
 import request from 'supertest';
 import app from './testApp.js';
-import Magento from '../models/magentoModel.js';
+import Magento from '../src/models/magentoModel.js';
 
 // Mock this model
 vi.mock('../models/magentoModel.js', () => {

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import magentoRoutes from './routes/magentoRoutes.js'
+import magentoRoutes from './src/routes/magentoRoutes.js'
 import sequelize from "./config/database.js";
 
 const app = express();
