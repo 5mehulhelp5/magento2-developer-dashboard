@@ -10,7 +10,7 @@ export default function DashboardLayout({ records, commands, children }) {
                 <div className={'container-fluid'}>
                     <div className={'row'}>
                         <div className={'col-12 col-md-5 col-xl-4 leftPane'}>
-                            <MagentoList magentoRecords={records} />
+                            <MagentoList magentos={records} />
                             <hr />
                             <CommandList records={commands} />
                         </div>

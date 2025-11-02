@@ -45,32 +45,32 @@ function App() {
         <>
             <Routes>
                 <Route index element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <Home />
                     </DashboardLayout>
                 } />
                 <Route path="about" element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <About />
                     </DashboardLayout>
                 } />
                 <Route path="login" element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <Login />
                     </DashboardLayout>
                 } />
                 <Route path="magento/add" element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <AddMagento onRecordAdded={loadAll} />
                     </DashboardLayout>
                 } />
                 <Route path="magento/:id" element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <Details onRecordDeleted={loadAll} records={magentos} />
                     </DashboardLayout>
                 } />
                 <Route path="command/add" element={
-                    <DashboardLayout records={magentos}>
+                    <DashboardLayout records={magentos} commands={commands}>
                         <AddCommand onRecordAdded={loadAll} />
                     </DashboardLayout>
                 } />
