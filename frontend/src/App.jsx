@@ -5,52 +5,73 @@ import DashboardLayout from "./layouts/DashboardLayout.jsx";
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
-import Add from './pages/magento/Add';
+import AddCommand from './pages/command/Add';
+import AddMagento from './pages/magento/Add';
 import Details from './components/magento/Details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
-    const [records, setRecords] = useState([]);
+    const [commands, setCommands] = useState([]);
+    const [magentos, setMagentos] = useState([]);
 
-    const loadRecords = async () => {
+    const loadCommands = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/magento/');
-            setRecords(response.data);
+            const response = await axios.get('http://localhost:5000/command/');
+            setCommands(response.data);
         } catch (error) {
             console.error('Error fetching records:', error);
         }
     }
 
+    const loadMagentos = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/magento/');
+            setMagentos(response.data);
+        } catch (error) {
+            console.error('Error fetching records:', error);
+        }
+    }
+
+    const loadAll = async () => {
+        loadCommands();
+        loadMagentos();
+    }
+
     useEffect(() => {
-        loadRecords();
+        loadAll();
     }, []);
 
     return (
         <>
             <Routes>
                 <Route index element={
-                    <DashboardLayout records={records}>
+                    <DashboardLayout records={magentos}>
                         <Home />
                     </DashboardLayout>
                 } />
                 <Route path="about" element={
-                    <DashboardLayout records={records}>
+                    <DashboardLayout records={magentos}>
                         <About />
                     </DashboardLayout>
                 } />
                 <Route path="login" element={
-                    <DashboardLayout records={records}>
+                    <DashboardLayout records={magentos}>
                         <Login />
                     </DashboardLayout>
                 } />
                 <Route path="magento/add" element={
-                    <DashboardLayout records={records}>
-                        <Add onRecordAdded={loadRecords} />
+                    <DashboardLayout records={magentos}>
+                        <AddMagento onRecordAdded={loadAll} />
                     </DashboardLayout>
                 } />
                 <Route path="magento/:id" element={
-                    <DashboardLayout records={records}>
-                        <Details onRecordDeleted={loadRecords} records={records} />
+                    <DashboardLayout records={magentos}>
+                        <Details onRecordDeleted={loadAll} records={magentos} />
+                    </DashboardLayout>
+                } />
+                <Route path="command/add" element={
+                    <DashboardLayout records={magentos}>
+                        <AddCommand onRecordAdded={loadAll} />
                     </DashboardLayout>
                 } />
             </Routes>
