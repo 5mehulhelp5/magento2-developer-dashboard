@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function ProjectList({ records }) {
+export default function List({ records }) {
     function isWithinLastMinutes(timestamp, minutes = 5) {
         const now = new Date();
         const time = new Date(timestamp);
@@ -12,7 +12,7 @@ export default function ProjectList({ records }) {
     return (
         <>
             <p className="text-center">
-                <Link to="/add" className="btn btn-primary">Add Magento Site</Link>
+                <Link to="/magento/add" className="btn btn-primary">Add Magento Site</Link>
             </p>
 
             {records && records.length > 0 && (

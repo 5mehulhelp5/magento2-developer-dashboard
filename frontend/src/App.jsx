@@ -5,8 +5,8 @@ import DashboardLayout from "./layouts/DashboardLayout.jsx";
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
-import Add from './pages/Add';
-import Details from './components/Details.jsx';
+import Add from './pages/magento/Add';
+import Details from './components/magento/Details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
                         <Login />
                     </DashboardLayout>
                 } />
-                <Route path="add" element={
+                <Route path="magento/add" element={
                     <DashboardLayout records={records}>
                         <Add onRecordAdded={loadRecords} />
                     </DashboardLayout>

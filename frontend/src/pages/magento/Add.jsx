@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import MagentoForm from '../components/MagentoForm'
+import MagentoForm from '../../components/magento/Form'
 
 export default function Add({ onRecordAdded}) {
     const navigate = useNavigate();
