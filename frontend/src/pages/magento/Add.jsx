@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import MagentoForm from '../../components/magento/Form'
+import Form from '../../components/magento/Form'
 
 export default function Add({ onRecordAdded}) {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Add({ onRecordAdded}) {
     return (
         <>
             <h1 className="text-center">Add New Magento Site</h1>
-            <MagentoForm onSuccess={handleSuccess} />
+            <Form onSuccess={handleSuccess} />
         </>
     )
 }
