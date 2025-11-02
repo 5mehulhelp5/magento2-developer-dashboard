@@ -40,24 +40,33 @@ export default function Details({ records, onRecordDeleted }) {
                 </div>
 
                 <div className="row">
-                    <div className="col-sm">Record Name</div>
-                    <div className="col-sm">{record.name}</div>
-                </div>
-                <div className="row">
-                    <div className="col-sm">Record Url</div>
-                    <div className="col-sm">{record.url}</div>
-                </div>
-                <div className="row">
-                    <div className="col-sm">Record Access Token</div>
-                    <div className="col-sm">{record.access_token}</div>
-                </div>
-                <div className="row">
-                    <div className="col-sm">Record Created At</div>
+                    <div className="col-sm">Created At</div>
                     <div className="col-sm">{new Date(record.createdAt).toLocaleString()}</div>
                 </div>
                 <div className="row">
-                    <div className="col-sm">Record Updated At</div>
+                    <div className="col-sm">Updated At</div>
                     <div className="col-sm">{new Date(record.updatedAt).toLocaleString()}</div>
+                </div>
+                <hr />
+                <div className="row">
+                    <div className="col-sm">Name</div>
+                    <div className="col-sm">{record.name}</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">Url</div>
+                    <div className="col-sm">{record.url}</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">Access Token</div>
+                    <div className="col-sm">{record.access_token}</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">SFTP Login</div>
+                    <div className="col-sm">{record.stfp_login}</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">SFTP Password</div>
+                    <div className="col-sm">{record.sftp_password}</div>
                 </div>
             </div>
             <br />
