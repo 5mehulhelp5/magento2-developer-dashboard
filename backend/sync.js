@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import sequelize from './config/database.js';
-import Magento from './models/magentoModel.js';
 
 (async() => {
     try {
