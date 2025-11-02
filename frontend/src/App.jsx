@@ -7,7 +7,8 @@ import About from './pages/About';
 import Login from './pages/Login';
 import AddCommand from './pages/command/Add';
 import AddMagento from './pages/magento/Add';
-import Details from './components/magento/Details.jsx';
+import CommandDetails from './components/command/Details.jsx';
+import MagentoDetails from './components/magento/Details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
@@ -66,12 +67,17 @@ function App() {
                 } />
                 <Route path="magento/:id" element={
                     <DashboardLayout records={magentos} commands={commands}>
-                        <Details onRecordDeleted={loadAll} records={magentos} />
+                        <MagentoDetails onRecordDeleted={loadAll} records={magentos} />
                     </DashboardLayout>
                 } />
                 <Route path="command/add" element={
                     <DashboardLayout records={magentos} commands={commands}>
                         <AddCommand onRecordAdded={loadAll} />
+                    </DashboardLayout>
+                } />
+                <Route path="command/:id" element={
+                    <DashboardLayout records={magentos} commands={commands}>
+                        <CommandDetails onRecordDeleted={loadAll} commands={commands} />
                     </DashboardLayout>
                 } />
             </Routes>
