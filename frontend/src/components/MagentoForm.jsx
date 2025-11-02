@@ -37,6 +37,12 @@ export default function MagentoForm({ onSuccess }) {
                     <label htmlFor="access_token" className="form-label">Magento Token</label>
                     <input id="access_token" name="access_token" type="text" placeholder="Magento Token" className="form-control" required /><br />
 
+                    <label htmlFor="sftp_login" className="form-label">SFTP Login</label>
+                    <input id="sftp_login" name="sftp_login" type="text" placeholder="user@server" className="form-control" /><br />
+
+                    <label htmlFor="sftp_password" className="form-label">SFTP Password</label>
+                    <input id="sftp_password" name="sftp_password" type="text" placeholder="SFTP Password" className="form-control" /><br />
+
                     <p className="text-center">
                         <button type="submit" className="btn btn-primary">Add Magento</button>
                     </p>
