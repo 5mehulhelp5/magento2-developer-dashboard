@@ -1,8 +1,14 @@
-import Magento from '../models/magentoModel.js';
+import {
+    getMagentoRecords,
+    getMagentoRecord,
+    createMagentoRecord,
+    updateMagentoRecord,
+    deleteMagentoRecord
+} from '../services/magento.js';
 
 export const getMagentos = async (req, res) => {
     try {
-        const magentos = await Magento.findAll();
+        const magentos = await getMagentoRecords()
         res.json(magentos);
     } catch (err) {
         res.status(500).json({ error: 'Server error' });
@@ -11,7 +17,7 @@ export const getMagentos = async (req, res) => {
 
 export const createMagento = async (req, res) => {
     try {
-        const magento = await Magento.create(req.body);
+        const magento = await createMagentoRecord(req.body);
         res.status(201).json(magento);
     } catch (err) {
         if (err.name === 'SequelizeUniqueConstraintError') {
@@ -23,16 +29,27 @@ export const createMagento = async (req, res) => {
 };
 
 export const updateMagento = async (req, res) => {
-    const magento = await Magento.findByPk(req.params.id);
+    const magento = await getMagentoRecord(req.params.id);
     if (!magento) return res.status(404).json({ error: 'Magento not found' });
-    await magento.update(req.body);
-    res.json(magento);
+
+    try {
+        await updateMagentoRecord(magento, req.body);
+        res.json(magento);
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
 };
 
 export const deleteMagento = async (req, res) => {
-    const magento = await Magento.findByPk(req.params.id);
+    const magento = await getMagentoRecord(req.params.id);
     if (!magento) return res.status(404).json({ error: 'Magento not found' });
-    await magento.destroy();
-    res.status(204).send();
+
+    try {
+        await deleteMagentoRecord(magento);
+        res.status(204).send();
+    } catch (err) {
+        res.status(500).json({ error: err });
+    }
+
 };
 
