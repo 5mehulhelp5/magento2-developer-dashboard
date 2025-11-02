@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function List({ records }) {
+export default function List({ magentos }) {
     function isWithinLastMinutes(timestamp, minutes = 5) {
         const now = new Date();
         const time = new Date(timestamp);
@@ -15,10 +15,10 @@ export default function List({ records }) {
                 <Link to="/magento/add" className="btn btn-primary">Add Magento Site</Link>
             </p>
 
-            {records && records.length > 0 && (
+            {magentos && magentos.length > 0 && (
                 <ul className="list-group">
-                    {records.length &&
-                        records.map(
+                    {magentos.length &&
+                        magentos.map(
                             r => <Link
                                 to={`/magento/${r.id}`}
                                 className="list-group-item"
