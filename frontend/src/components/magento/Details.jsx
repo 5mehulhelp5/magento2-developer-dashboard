@@ -61,8 +61,12 @@ export default function Details({ records, onRecordDeleted }) {
                     <div className="col-sm">{record.access_token}</div>
                 </div>
                 <div className="row">
-                    <div className="col-sm">SFTP Login</div>
-                    <div className="col-sm">{record.stfp_login}</div>
+                    <div className="col-sm">SFTP Host</div>
+                    <div className="col-sm">{record.sftp_host}</div>
+                </div>
+                <div className="row">
+                    <div className="col-sm">SFTP User</div>
+                    <div className="col-sm">{record.sftp_user}</div>
                 </div>
                 <div className="row">
                     <div className="col-sm">SFTP Password</div>

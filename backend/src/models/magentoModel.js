@@ -15,11 +15,15 @@ const Magento = sequelize.define('Magento', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    sftp_login: {
+    sftp_host: {
         type: DataTypes.STRING,
         allowNull: true
     },
-    stfp_password: {
+    sftp_user: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    sftp_password: {
         type: DataTypes.STRING,
         allowNull: true
     }
