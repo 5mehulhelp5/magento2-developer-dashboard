@@ -5,7 +5,8 @@ export async function getMagentoRecords() {
 }
 
 export async function getMagentoRecord(id) {
-    return await Magento.findByPk(id);
+    //TODO: Add Number.isInteger check and error handling
+    return await Magento.findByPk(parseInt(id));
 }
 
 export async function createMagentoRecord(magentoData) {
