@@ -3,7 +3,7 @@ import { getMagentoRecord } from '../services/magento.js'
 import { runCommandOnHost } from "../services/ssh.js";
 
 export async function run(req, res) {
-    const { sshId: magentoId, commandId } = req.body;
+    const { magentoId, commandId } = req.body;
 
     if (!magentoId) {
         return res.status(400).json({ error: 'Magento not found' });
@@ -23,12 +23,12 @@ export async function run(req, res) {
         return res.status(400).json({ error: 'Command not found by id' });
     }
 
-    const result = await runCommandOnHost(
+    const results = await runCommandOnHost(
         magentoResult.sftp_host,
         magentoResult.sftp_user,
         magentoResult.sftp_password,
         commandResult.value
     );
 
-    res.json({ result });
+    res.json({ results });
 }
