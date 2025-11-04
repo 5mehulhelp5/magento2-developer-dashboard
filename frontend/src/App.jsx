@@ -7,6 +7,7 @@ import About from './pages/About';
 import Login from './pages/Login';
 import AddCommand from './pages/command/Add';
 import AddMagento from './pages/magento/Add';
+import RunCommand from './pages/run/Run';
 import CommandDetails from './components/command/Details.jsx';
 import MagentoDetails from './components/magento/Details.jsx';
 import "bootstrap/dist/css/bootstrap.css";
@@ -78,6 +79,11 @@ function App() {
                 <Route path="command/:id" element={
                     <DashboardLayout records={magentos} commands={commands}>
                         <CommandDetails onRecordDeleted={loadAll} commands={commands} />
+                    </DashboardLayout>
+                } />
+                <Route path="run" element={
+                    <DashboardLayout records={magentos} commands={commands}>
+                        <RunCommand onRecordDeleted={loadAll} commands={commands} />
                     </DashboardLayout>
                 } />
             </Routes>
