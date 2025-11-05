@@ -23,7 +23,7 @@ export default function List({ records }) {
                                 to={`/command/${r.id}`}
                                 className="list-group-item"
                                 key={r.id}>
-                                {r.name} - {r.url} {isWithinLastMinutes(r.createdAt, 30) && <span className="badge bg-success">New</span>}
+                                {r.name} - {r.value} {isWithinLastMinutes(r.createdAt, 30) && <span className="badge bg-success">New</span>}
                             </Link>
                         )
                     }
