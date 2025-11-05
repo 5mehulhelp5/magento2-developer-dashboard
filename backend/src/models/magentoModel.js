@@ -13,7 +13,7 @@ const Magento = sequelize.define('Magento', {
     },
     access_token: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     sftp_host: {
         type: DataTypes.STRING,
