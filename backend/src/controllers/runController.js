@@ -13,11 +13,17 @@ export async function run(req, res) {
         return res.status(400).json({ error: 'Command not found' });
     }
 
+    /**
+     * @type {Magento}
+     */
     const magentoResult = await getMagentoRecord(magentoId);
     if (magentoResult === null) {
         return res.status(400).json({ error: 'Magento not found by id' });
     }
 
+    /**
+     * @type {Command}
+     */
     const commandResult = await getCommandRecord(commandId);
     if (commandResult === null) {
         return res.status(400).json({ error: 'Command not found by id' });
@@ -29,6 +35,9 @@ export async function run(req, res) {
         magentoResult.sftp_password,
         commandResult.value
     );
+
+    results.magento = magentoResult;
+    results.command = commandResult;
 
     res.json({ results });
 }

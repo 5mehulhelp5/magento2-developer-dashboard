@@ -48,10 +48,10 @@ export default function Run() {
             <div className="mb-4">
                 <h2 className="font-semibold">Select connections</h2>
                 {
-                    magento.map(c => <div key={c.id}><label><input type="checkbox" checked={selected.includes(c.id)} onChange={()=>toggle(c.id)} /> {c.name} ({c.host})</label></div>)
+                    magento.map(c => <div key={c.id}><label><input type="checkbox" checked={selected.includes(c.id)} onChange={()=>toggle(c.id)} /> {c.name} ({c.sftp_user}@{c.sftp_host})</label></div>)
                 }
             </div>
-            <br /><br />
+            <br />
 
             <div className="mb-4">
                 <h2 className="font-semibold">Select command</h2>
@@ -62,7 +62,7 @@ export default function Run() {
                     }
                 </select>
             </div>
-            <br /><br />
+            <br />
 
             <button className="btn btn-primary mb-4" onClick={run}>Run</button><br /><br /><br />
 
@@ -70,10 +70,11 @@ export default function Run() {
                 <h2 className="font-semibold">Results</h2>
                 {
                     results.map((r)=>(
-                        <div className="mb-3 p-2 border rounded bg-white">
+                        <div key={r.magento.id} className="mb-3 p-2 border rounded bg-white">
                             <div className="font-semibold">STATUS: {r.success ? 'OK' : 'FAIL'}</div>
-                            <br />
-                            <pre className="whitespace-pre-wrap">{r.output}</pre>
+                            <div className="font-semibold">MAGENTO: {r.magento.name}</div>
+                            <div className="font-semibold">COMMAND: {r.command.name}</div>
+                            <div className="font-semibold">OUTPUT: <pre className="whitespace-pre-wrap">{r.output}</pre></div>
                         </div>
                     ))
                 }
