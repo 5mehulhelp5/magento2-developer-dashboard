@@ -35,7 +35,7 @@ export default function MagentoForm({ onSuccess }) {
                     <input id="url" name="url" type="text" placeholder="Magento URL" className="form-control" required /><br />
 
                     <label htmlFor="access_token" className="form-label">Magento Token</label>
-                    <input id="access_token" name="access_token" type="text" placeholder="Magento Token" className="form-control" required /><br />
+                    <input id="access_token" name="access_token" type="text" placeholder="Magento Token" className="form-control" /><br />
 
                     <label htmlFor="sftp_host" className="form-label">SFTP Host</label>
                     <input id="sftp_host" name="sftp_host" type="text" placeholder="Host" className="form-control" /><br />
