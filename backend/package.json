@@ -18,7 +18,8 @@
     "express": "^4.21.2",
     "node-ssh": "^13.2.1",
     "pg": "^8.16.3",
-    "pg-hstore": "^2.3.4"
+    "pg-hstore": "^2.3.4",
+    "prisma": "^6.19.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0",
