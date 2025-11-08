@@ -3,7 +3,6 @@ import cors from "cors";
 import magentoRoutes from './src/routes/magentoRoutes.js'
 import commandRoutes from './src/routes/commandRoutes.js'
 import runRoutes from './src/routes/runRoutes.js'
-import sequelize from "./config/database.js";
 
 const app = express();
 const PORT = 5000;
@@ -26,12 +25,12 @@ const connectWithRetry = async (retries = 5, delay = 3000) => {
     for (let i = 0; i < retries; i++) {
         try {
             // authenticate() is a lightweight method to check if the connection is established
-            await sequelize.authenticate();
-            console.log('Database connected successfully.');
+            //await sequelize.authenticate();
+            //console.log('Database connected successfully.');
 
             // Sync the database
-            await sequelize.sync();
-            console.log('Database synced successfully.');
+            //await sequelize.sync();
+            //console.log('Database synced successfully.');
 
             return;
         } catch (error) {
