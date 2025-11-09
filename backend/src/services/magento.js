@@ -1,23 +1,39 @@
-import Magento from '../models/magentoModel.js';
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 export async function getMagentoRecords() {
-    return await Magento.findAll();
+    return prisma.magento.findMany();
 }
 
 export async function getMagentoRecord(id) {
-    //TODO: Add Number.isInteger check and error handling
-    return await Magento.findByPk(parseInt(id));
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+
+    return prisma.magento.findUnique({
+        where: { id },
+    });
 }
 
 export async function createMagentoRecord(magentoData) {
-    return Magento.create(magentoData);
+    return prisma.magento.create({
+        data: magentoData,
+    });
 }
 
-export async function updateMagentoRecord(magento, magentoData){
-    return await magento.update(magentoData);
+export async function updateMagentoRecord(id, magentoData){
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+
+    return prisma.magento.update({
+        where: { id },
+        data: magentoData,
+    });
 }
 
-export async function deleteMagentoRecord(magento){
-    return await magento.destroy();
+export async function deleteMagentoRecord(id){
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+
+    return prisma.magento.delete({
+        where: { id },
+    });
 }
 

@@ -15,6 +15,18 @@ export const getMagentos = async (req, res) => {
     }
 };
 
+export const getMagento = async (req, res) => {
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+
+    try {
+        const magento = await getMagentoRecord(id)
+        res.json(magento);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+}
+
 export const createMagento = async (req, res) => {
     try {
         const magento = await createMagentoRecord(req.body);
@@ -29,11 +41,11 @@ export const createMagento = async (req, res) => {
 };
 
 export const updateMagento = async (req, res) => {
-    const magento = await getMagentoRecord(req.params.id);
-    if (!magento) return res.status(404).json({ error: 'Magento not found' });
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     try {
-        await updateMagentoRecord(magento, req.body);
+        await updateMagentoRecord(id, req.body);
         res.json(magento);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -41,11 +53,11 @@ export const updateMagento = async (req, res) => {
 };
 
 export const deleteMagento = async (req, res) => {
-    const magento = await getMagentoRecord(req.params.id);
-    if (!magento) return res.status(404).json({ error: 'Magento not found' });
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     try {
-        await deleteMagentoRecord(magento);
+        await deleteMagentoRecord(id);
         res.status(204).send();
     } catch (err) {
         res.status(500).json({ error: err });
