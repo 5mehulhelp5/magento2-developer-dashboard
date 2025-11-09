@@ -1,8 +1,8 @@
 # Use Node.js base image
 FROM node:22
 
-# Prisma needs OpenSSL for libssl
-RUN apk add --no-cache openssl
+# Install OpenSSL (Prisma requires libssl)
+RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
