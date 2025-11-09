@@ -30,7 +30,6 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
-    command: npm run dev
 
   frontend:
     build: ./frontend
