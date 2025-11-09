@@ -34,11 +34,6 @@ export default function MagentoForm({ onSuccess }) {
                     <label htmlFor="value" className="form-label">Command</label>
                     <input id="value" name="value" type="text" placeholder="php bin/magento..." className="form-control" required /><br />
 
-                    <div className="form-check">
-                        <label htmlFor="change_folder" className="form-check-label">Run from public_html/ ?</label>
-                        <input id="change_folder" name="change_folder" type="checkbox" className="form-check-input"/><br/>
-                    </div>
-
                     <p className="text-center">
                         <button type="submit" className="btn btn-primary">Add Command</button>
                     </p>
