@@ -10,6 +10,9 @@
     "prisma:migrate": "node init-db.js",
     "test": "vitest"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "author": "Randy Esplin",
   "license": "ISC",
   "description": "",
