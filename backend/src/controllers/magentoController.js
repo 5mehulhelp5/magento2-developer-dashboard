@@ -16,8 +16,8 @@ export const getMagentos = async (req, res) => {
 };
 
 export const getMagento = async (req, res) => {
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
         const magento = await getMagentoRecord(id)
@@ -41,11 +41,11 @@ export const createMagento = async (req, res) => {
 };
 
 export const updateMagento = async (req, res) => {
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
-        await updateMagentoRecord(id, req.body);
+        const magento = await updateMagentoRecord(id, req.body);
         res.json(magento);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -53,8 +53,8 @@ export const updateMagento = async (req, res) => {
 };
 
 export const deleteMagento = async (req, res) => {
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
         await deleteMagentoRecord(id);

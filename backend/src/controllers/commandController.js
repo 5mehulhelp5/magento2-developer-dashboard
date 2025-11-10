@@ -16,8 +16,8 @@ export const getCommands = async (req, res) => {
 };
 
 export const getCommand = async (req, res) => {
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
         const command = await getCommandRecord(id)
@@ -41,22 +41,20 @@ export const createCommand = async (req, res) => {
 };
 
 export const updateCommand = async (req, res) => {
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
-        await updateCommandRecord(id, req.body);
-        res.json(magento);
+        const command = await updateCommandRecord(id, req.body);
+        res.json(command);
     } catch (err) {
         res.status(500).json({ error: err });
     }
 };
 
 export const deleteCommand = async (req, res) => {
-    throw new Error(req);
-
-    const id = req.params.id;
-    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+    const id = Number(req.params.id);
+    if (isNaN(id)) throw new Error(`Non-numeric value: ${id}`);
 
     try {
         await deleteCommandRecord(id);
