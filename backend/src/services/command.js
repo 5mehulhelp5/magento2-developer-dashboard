@@ -10,7 +10,7 @@ export async function getCommandRecord(id) {
     if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     return prisma.command.findUnique({
-        where: { id },
+        where: { id: id },
     });
 }
 
@@ -24,7 +24,7 @@ export async function updateCommandRecord(id, commandData){
     if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     return prisma.command.update({
-        where: { id },
+        where: { id: id },
         data: commandData,
     });
 }
@@ -33,7 +33,6 @@ export async function deleteCommandRecord(id){
     if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     return prisma.command.delete({
-        where: { id },
+        where: { id: id },
     });
 }
-
