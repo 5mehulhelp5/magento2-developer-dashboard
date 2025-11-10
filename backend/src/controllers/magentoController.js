@@ -25,7 +25,7 @@ export const getMagento = async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: 'Server error' });
     }
-}
+};
 
 export const createMagento = async (req, res) => {
     try {
