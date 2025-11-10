@@ -15,6 +15,18 @@ export const getCommands = async (req, res) => {
     }
 };
 
+export const getCommand = async (req, res) => {
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
+
+    try {
+        const command = await getCommandRecord(id)
+        res.json(command);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
 export const createCommand = async (req, res) => {
     try {
         const command = await createCommandRecord(req.body);
@@ -29,11 +41,11 @@ export const createCommand = async (req, res) => {
 };
 
 export const updateCommand = async (req, res) => {
-    const magento = await getCommandRecord(req.params.id);
-    if (!magento) return res.status(404).json({ error: 'Command not found' });
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     try {
-        await updateCommandRecord(magento, req.body);
+        await updateCommandRecord(id, req.body);
         res.json(magento);
     } catch (err) {
         res.status(500).json({ error: err });
@@ -41,11 +53,13 @@ export const updateCommand = async (req, res) => {
 };
 
 export const deleteCommand = async (req, res) => {
-    const magento = await getCommandRecord(req.params.id);
-    if (!magento) return res.status(404).json({ error: 'Command not found' });
+    throw new Error(req);
+
+    const id = req.params.id;
+    if (!Number.isInteger(id)) throw new Error('Invalid ID');
 
     try {
-        await deleteCommandRecord(magento);
+        await deleteCommandRecord(id);
         res.status(204).send();
     } catch (err) {
         res.status(500).json({ error: err });
