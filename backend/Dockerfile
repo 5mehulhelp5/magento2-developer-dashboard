@@ -21,4 +21,4 @@ RUN npx prisma generate
 EXPOSE 5000
 
 # Automatically run migrations and start the app
-CMD ["sh", "-c", "npm run prisma:migrate && npm start"]
+CMD ["sh", "-c", "npm run db:setup && npm start"]
