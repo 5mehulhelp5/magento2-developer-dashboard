@@ -22,4 +22,4 @@ COPY . .
 EXPOSE 5000
 
 # Automatically run migrations and start the app
-CMD ["sh", "-c", "npx prisma db push && npm run dev"]
+CMD ["sh", "-c", "npx prisma db push && npx prisma db seed && npm run dev"]
