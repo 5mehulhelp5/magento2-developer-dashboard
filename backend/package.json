@@ -8,10 +8,9 @@
     "dev": "nodemon server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "node init-db.js",
+    "prisma:seed": "node prisma/seed.js",
+    "db:setup": "npm run prisma:generate && npm run prisma:migrate",
     "test": "vitest"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.js"
   },
   "author": "Randy Esplin",
   "license": "ISC",
