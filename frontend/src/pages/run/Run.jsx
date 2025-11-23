@@ -30,11 +30,11 @@ export default function Run() {
 
     async function run(){
         if (selected.length === 0 || !commandId) {
-            return alert('Please select connectopms and a command');
+            return alert('Please select connection(s) and a command');
         }
 
         try {
-            const r = await axios.post(API + 'run', {magentoId: selected, commandId});
+            const r = await axios.post(API + 'run', { magentoId: selected, commandId });
             setResults([r.data.results]);
         } catch (err) {
             console.log('Run request failed', err);
