@@ -1,3 +1,8 @@
+/**
+ * @typedef { import("@prisma/client").Command } Command
+ * @typedef { import("@prisma/client").Magento } Magento
+ */
+
 import { getCommandRecord } from '../services/command.js'
 import { getMagentoRecord } from '../services/magento.js'
 import { runCommandOnHost } from "../services/ssh.js";
