@@ -26,19 +26,19 @@ export default function Header() {
                             </li>
                             <li className="nav-item">
                                 <NavLink
+                                    to="/run"
+                                    className={({ isActive }) =>
+                                        isActive ? 'nav-link active' : 'nav-link'
+                                    }
+                                >Run</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink
                                     to="/about"
                                     className={({ isActive }) =>
                                         isActive ? `nav-link active` : 'nav-link'
                                     }
                                 >About</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink
-                                    to="/login"
-                                    className={({ isActive }) =>
-                                        isActive ? `nav-link active` : 'nav-link'
-                                    }
-                                >Login</NavLink>
                             </li>
                         </ul>
                     </div>
